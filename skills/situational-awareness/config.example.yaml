@@ -1,0 +1,22 @@
+# Situational Awareness — project configuration
+# Bootstrap generates this for you. Edit anytime.
+# Copy to your project root as `config.yaml`.
+
+# Identity (required)
+owner: ""              # Your name — appears as the owner of every initiative
+manager: ""            # Who you report to (optional)
+                       # Set this to enable Leadership Prep Mode.
+                       # Leave empty if not applicable.
+
+# Git sync (optional — OFF by default)
+# Most users on a synced folder (OneDrive, Dropbox, iCloud) should leave this
+# off; the folder syncs itself. Turn it on only if you want git version history.
+git:
+  enabled: false       # true = skill commits after changes
+  auto_push: false     # true = push after commit (requires enabled: true)
+  push_target: current # "current" | "main" | a branch name
+  merge_to_main: false # true = also merge to main after pushing (advanced)
+
+# Output
+reports_dir: .reports  # Where the HTML dashboard + JSON data are written.
+                       # Conductor users may prefer ".context/reports".

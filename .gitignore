@@ -1,0 +1,6 @@
+# Generated dashboard output (when a user runs the skill inside this repo)
+.reports/
+.context/
+
+# OS noise
+.DS_Store
