@@ -47,3 +47,14 @@ cp -r skills/grill-me ~/.claude/skills/
 
 Then answer each question — or say "go with your recommended answer" to accept
 the suggestion and move to the next branch.
+
+## Credits
+
+Inspired by Matt Pocock's `grill-me` skill
+([mattpocock/skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md)).
+The core idea — relentlessly interviewing the user one question at a time, with a
+recommended answer for each, and consulting the codebase instead of asking when
+the answer is discoverable — comes from his version. This implementation builds
+on it with an explicit decision-tree model, a fixed per-turn format
+(question → why it matters → recommended answer → next branch), highest-leverage
+question ordering, branch-resolution rules, and formal completion criteria.

@@ -8,6 +8,13 @@ disable-model-invocation: false
 
 # Grill Me
 
+> Inspired by Matt Pocock's `grill-me` skill
+> (https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md).
+> The relentless one-question-at-a-time interview, recommended answers, and
+> codebase-aware questioning come from his version; this implementation adds an
+> explicit decision-tree model, a fixed per-turn format, leverage-based question
+> ordering, branch-resolution rules, and formal completion criteria.
+
 ## Purpose
 
 Use this skill to pressure-test a plan until the major design branches, dependencies, assumptions, and tradeoffs are explicit and resolved. The goal is not encouragement. The goal is a durable shared understanding.

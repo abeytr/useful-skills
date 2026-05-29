@@ -149,6 +149,12 @@ grill-me and brainstorm need nothing beyond Claude Code.
 | handoff | 🚧 Coming soon | core |
 | explore | 🚧 Coming soon | core |
 
+## Credits
+
+- **grill-me** is inspired by Matt Pocock's skill of the same name
+  ([mattpocock/skills](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md)).
+  See the [skill README](skills/grill-me/README.md) for what this version adds.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
