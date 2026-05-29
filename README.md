@@ -1,8 +1,9 @@
 # useful-skills
 
 A collection of [Claude Code](https://claude.com/claude-code) skills for
-knowledge work — tracking parallel initiatives, recovering from context
-switches, delegating, and learning.
+knowledge work and engineering — tracking parallel initiatives, recovering from
+context switches, thinking through problems, stress-testing plans, and reviewing
+architecture.
 
 Skills are self-contained. Some share a common project structure (the **core
 ecosystem**); others are **standalone**. Pick the ones you want.
@@ -27,7 +28,43 @@ cp -r skills/situational-awareness ~/.claude/skills/
 /situational-awareness bootstrap
 ```
 
-*More skills (handoff, explore) coming soon — see below.*
+### 🔥 grill-me — *standalone*
+
+Stress-test a plan, design, or decision until every branch, dependency, and
+tradeoff is explicit. One skeptical question at a time, each with a recommended
+answer, ending in an ordered plan. (This skill ran the design of this repo.)
+
+→ [Skill README](skills/grill-me/README.md)
+
+```bash
+cp -r skills/grill-me ~/.claude/skills/
+```
+
+### 💡 brainstorm — *standalone*
+
+A Socratic thinking partner for understanding a problem and finding the
+*simplest* resolution. Grounded in mental models from "The Great Mental Models."
+Three phases: understand → research solutions (simplest-first) → document.
+
+→ [Skill README](skills/brainstorm/README.md)
+
+```bash
+cp -r skills/brainstorm ~/.claude/skills/
+```
+
+### 🏛️ system-architecture-review — *standalone*
+
+A rigorous, principled review of an existing system's architecture — Socratic
+domain understanding, a review grounded in Richards & Ford, and an adversarial
+cross-model challenge (via a second AI model or human peer) to catch blind spots.
+
+→ [Skill README](skills/system-architecture-review/README.md)
+
+```bash
+cp -r skills/system-architecture-review ~/.claude/skills/
+```
+
+*More core skills (handoff, explore) coming soon — see status below.*
 
 ---
 
@@ -46,11 +83,20 @@ own needs and doesn't require the core structure.
 useful-skills/
 ├── README.md                ← you are here
 ├── skills/
-│   └── situational-awareness/
-│       ├── SKILL.md             the skill itself
-│       ├── report-template.html the dashboard template (ships with the skill)
-│       ├── config.example.yaml  configuration template
-│       └── README.md            skill-specific docs
+│   ├── situational-awareness/   core: portfolio review system
+│   │   ├── SKILL.md
+│   │   ├── report-template.html the dashboard template (ships with the skill)
+│   │   ├── config.example.yaml  configuration template
+│   │   └── README.md
+│   ├── grill-me/                standalone: plan stress-testing
+│   │   ├── SKILL.md
+│   │   └── README.md
+│   ├── brainstorm/              standalone: Socratic problem exploration
+│   │   ├── SKILL.md
+│   │   └── README.md
+│   └── system-architecture-review/  standalone: principled architecture review
+│       ├── SKILL.md
+│       └── README.md
 ├── examples/                ← sample initiative / fire / goals / plan files
 └── docs/
     ├── getting-started.md
@@ -58,12 +104,15 @@ useful-skills/
     └── customization.md
 ```
 
-A skill that is a **directory** (like situational-awareness) must be copied
-whole — it bundles assets (the dashboard template) alongside its `SKILL.md`.
+Each skill is a **directory** — copy it whole. situational-awareness bundles its
+dashboard template alongside `SKILL.md`; copying just the `.md` would leave the
+dashboard broken.
 
-## Core concepts (the shared model)
+## Core concepts (the situational-awareness ecosystem)
 
-The core ecosystem tracks two kinds of work, separately:
+The **core** skills share a model. (The standalone skills — grill-me, brainstorm,
+system-architecture-review — don't need any of this; they work on their own.)
+The core tracks two kinds of work, separately:
 
 - **Initiatives** — durable work you own and drive, with status, checkpoints,
   delegations, and steps.
@@ -80,15 +129,23 @@ Read more in [docs/core-concepts.md](docs/core-concepts.md).
 
 ## Requirements
 
-- [Claude Code](https://claude.com/claude-code)
-- `python3` (used to write the dashboard data file)
-- `git` + `gh` CLI — only if you opt into git sync (off by default)
+- [Claude Code](https://claude.com/claude-code) — all skills.
+- `python3` — situational-awareness only (writes the dashboard data file).
+- `git` + `gh` CLI — situational-awareness only, and only if you opt into git
+  sync (off by default).
+- A second AI model (Codex/Gemini CLI) or a human peer — system-architecture-review
+  only, for the adversarial pass (optional; degrades gracefully without one).
+
+grill-me and brainstorm need nothing beyond Claude Code.
 
 ## Status
 
 | Skill | State | Type |
 |-------|-------|------|
 | situational-awareness | ✅ Available | core |
+| grill-me | ✅ Available | standalone |
+| brainstorm | ✅ Available | standalone |
+| system-architecture-review | ✅ Available | standalone |
 | handoff | 🚧 Coming soon | core |
 | explore | 🚧 Coming soon | core |
 
