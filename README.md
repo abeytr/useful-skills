@@ -40,6 +40,36 @@ answer, ending in an ordered plan. (This skill ran the design of this repo.)
 cp -r skills/grill-me ~/.claude/skills/
 ```
 
+### 📐 euclid — *standalone*
+
+Harden an argument before it leaves your hands, using the six critical-thinking
+habits Euclid's *Elements* trains (define terms, state postulates, decompose,
+construct-and-cite, reductio, proof by cases). Default mode is an **adversarial
+gate**: a hostile reviewer persona runs the destructive test on *your own*
+favored answer — does it survive, or was it merely asserted? — closes the option
+cases, audits the assumptions, and escalates high-stakes work to an external
+model. Also runs inline as five lightweight triggers.
+
+→ [Skill README](skills/euclid/README.md)
+
+```bash
+cp -r skills/euclid ~/.claude/skills/
+```
+
+### 📐🔥 grill-me-euclid — *standalone (requires euclid)*
+
+A heavier `/grill-me` for problems weighty enough to warrant deeper thinking: the
+relentless one-question interview, but with the Euclidean habits driving the
+questions — and it closes with the `euclid` gate, attacking your own conclusion
+before anyone else does. Interrogates *and* proves.
+
+→ [Skill README](skills/grill-me-euclid/README.md)
+
+```bash
+cp -r skills/euclid ~/.claude/skills/          # the engine — required
+cp -r skills/grill-me-euclid ~/.claude/skills/
+```
+
 ### 💡 brainstorm — *standalone*
 
 A Socratic thinking partner for understanding a problem and finding the
@@ -94,6 +124,12 @@ useful-skills/
 │   ├── brainstorm/              standalone: Socratic problem exploration
 │   │   ├── SKILL.md
 │   │   └── README.md
+│   ├── euclid/                  standalone: Euclidean argument-hardening gate
+│   │   ├── SKILL.md
+│   │   └── README.md
+│   ├── grill-me-euclid/         standalone (needs euclid): heavy grill + gate
+│   │   ├── SKILL.md
+│   │   └── README.md
 │   └── system-architecture-review/  standalone: principled architecture review
 │       ├── SKILL.md
 │       └── README.md
@@ -133,8 +169,10 @@ Read more in [docs/core-concepts.md](docs/core-concepts.md).
 - `python3` — situational-awareness only (writes the dashboard data file).
 - `git` + `gh` CLI — situational-awareness only, and only if you opt into git
   sync (off by default).
-- A second AI model (Codex/Gemini CLI) or a human peer — system-architecture-review
-  only, for the adversarial pass (optional; degrades gracefully without one).
+- A second AI model (Codex/Gemini CLI) or a human peer — system-architecture-review,
+  and the high-stakes escalation tier of euclid / grill-me-euclid, for the
+  adversarial pass (optional; all degrade gracefully without one).
+- `euclid` — required by grill-me-euclid (it provides the engine and the gate).
 
 grill-me and brainstorm need nothing beyond Claude Code.
 
@@ -145,6 +183,8 @@ grill-me and brainstorm need nothing beyond Claude Code.
 | situational-awareness | ✅ Available | core |
 | grill-me | ✅ Available | standalone |
 | brainstorm | ✅ Available | standalone |
+| euclid | ✅ Available | standalone |
+| grill-me-euclid | ✅ Available | standalone (needs euclid) |
 | system-architecture-review | ✅ Available | standalone |
 | handoff | 🚧 Coming soon | core |
 | explore | 🚧 Coming soon | core |
